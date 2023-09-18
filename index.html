@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 'Settings' Inner Modal -->
+        <div class="settings-inner-modal"></div>
+        <div class="settings-inner-container">
+            <div class="settings-inner-container--box">
+                <div class="close-inner-modal-container">
+                    <i class="fas fa-times"></i>
+                </div>
+                <h2 id="smallModalHeader">Header <span class="highlight">Name</span>.</h2>
+                <p id="smallModalP1">Your current username is User.</p>
+                <p id="smallModalP2">You can update your username below:</p>
+                <input id="smallModalInput" type="text" placeholder="Placeholder Text" autocomplete="off">
+                <div class="button-container">
+                    <button class="btn modal-cancel-btn">Cancel</button>
+                    <button id="smallModalBtnMain" class="btn btn-primary">Change</button>
+                </div>
+            </div>
+        </div>
+        <!-- Modals -->
+        <div class="modal-background"></div>
+        <!-- 'Settings' Modal -->
+        <div class="settings-modal">
+            <div class="close-settings-modal">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="settings-modal--header">
+                <p>Settings</p>
+            </div>
+            <div class="settings-modal--container">
+                <div class="settings-modal--inner-container">
+                    <!-- General Information -->
+                    <div class="settings-header">
+                        <p>General Information</p>
+                    </div>
+                    <div class="settings-content">
+                        <p class="emphasis">Username:</p>
+                        <p class="username">User</p>
+                        <p id="editUsernameBtn" class="settings-edit"><i class="fas fa-edit"></i> Edit</p>
+                        <p class="emphasis">List Name:</p>
+                        <p class="listName">To-Do List</p>
+                        <p id="editListNameBtn" class="settings-edit"><i class="fas fa-edit"></i> Edit</p>
+                        <p class="emphasis">Colour Theme:</p>
+                        <div class="colours">
+                            <div class="colour-active colour-box colour-green"></div>
+                            <div class="colour-box colour-orange"></div>
+                            <div class="colour-box colour-blue"></div>
+                            <div class="colour-box colour-pink"></div>
+                            <div class="colour-box colour-purple"></div>
+                        </div>
+                    </div>
+                    <!-- Statistics -->
+                    <div class="settings-header">
+                        <p>Statistics</p>
+                    </div>
+                    <div class="stats-section">
+                        <div class="stat-box">
+                            <p id="itemsCompletedText" class="stat-box--number">0</p>
+                            <div class="stat-box--text">
+                                <p>Items</p>
+                                <p>Completed</p>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <p id="itemsCreatedText" class="stat-box--number">0</p>
+                            <div class="stat-box--text">
+                                <p>Items</p>
+                                <p>Created</p>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <p id="itemEditsText" class="stat-box--number">0</p>
+                            <div class="stat-box--text">
+                                <p>Item</p>
+                                <p>Edits</p>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <p id="itemsDeletedText" class="stat-box--number">0</p>
+                            <div class="stat-box--text">
+                                <p>Items</p>
+                                <p>Deleted</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="summary-stats">
+                        <div class="summary-stats--box">
+                            <div class="stats-icon">
+                                <i class="fas fa-hourglass"></i>
+                            </div>
+                            <div class="stats-text">
+                                <div id="pendingItemsText" class="stats-text--number">0</div>
+                                <div class="stats-text--text">
+                                    <p>Pending</p>
+                                    <p>Items</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="summary-stats--box">
+                            <div class="stats-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stats-text">
+                                <div id="prioritisedItemsText" class="stats-text--number">0</div>
+                                <div class="stats-text--text">
+                                    <p>Prioritised</p>
+                                    <p>Items</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Recent Activity -->
+                    <div class="settings-header">
+                        <p>Recent Activity</p>
+                    </div>
+                    <div class="recent-box--empty">
+                        <div class="recent-box--empty-inner">
+                            <p>Nothing to report...</p>
+                        </div>
+                    </div>
+                    <div class="recent-box">
+                        <p class="recent-box--text">The following item was <span class="emphasis">added</span> to 'To-Do
+                            List' at 02:45 on
+                             18 June,
+                            2023:</p>
+                        <div class="recent-box--item">
+                            <p class="recent-box--item-text">Read a book</p>
+                        </div>
+                    </div>
+                    <!-- Progress -->
+                    <div class="settings-header">
+                        <p>Your Progress</p>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-container--stats">
+                            <div class="progress-stats-box">
+                                <p>Total XP:</p>
+                                <p class="total-xp-text">0</p>
+                            </div>
+                            <div class="progress-stats-box">
+                                <p>Level:</p>
+                                <p class="total-level-text">1</p>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-inner"></div>
+                        </div>
+                        <div class="progress-quote-generator">
+                            <p class="quote-text">What do you want to get done today?</p>
+                        </div>
+                    </div>
+                    <!-- Reset List -->
+                    <div class="reset-button-container">
+                        <button id="resetListBtn" class="reset-btn btn-negative">Reset List</button>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-modal--footer">
+                <p>Copyright &copy; Bamidele Ademokoya, 2023</p>
+            </div>
+        </div>
+
+        <!-- Add Button (Small Screens) -->
+        <div class="add-btn-container">
+            <button id="addBtnSm" class="add-btn-small">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="nav">
+            <div class="header">
+                <h1>To-Do List</h1>
+            </div>
+            <div class="options">
+                <div class="options--toggle">
+                    <div class="options--toggle-inner">
+                        <div id="moonIcon" class="toggle-box">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <div id="sunIcon" class="toggle-box">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="settingsBtn" class="options--settings">
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </div>
+        </nav>
+
+        <!-- List Container -->
+        <div class="list-container">
+            <main class="list">
+                <!-- List Name -->
+                <h1 class="listName">To-Do List</h1>
+                <!-- List Summary -->
+                <div class="summary">
+                    <p>Hello, <span class="emphasis username">Daniel</span>!</p>
+                    <p id="listedTodosText">There are currently <span class="emphasis">0 items</span> pending on your
+                        list.</p>
+                    <p id="prioritisedTodosText">You have <span class="emphasis">0 prioritised items</span>.</p>
+                </div>
+                <!-- 'Add' Container -->
+                <div class="input-container">
+                    <input id="addInputLg" class="input" type="text" placeholder="Add a To-Do Entry...">
+                    <button id="addBtnLg">Add <i class="fas fa-plus"></i></button>
+                </div>
+                <!-- Empty List Display -->
+                <div class="empty-list-display">
+                    <i class="far fa-smile"></i>
+                    <p>Looks like your to-do list is currently empty!</p>
+                </div>
+                <!-- List Item Container -->
+                <div class="list-item-container">
+                    <!-- Filter Items (Large Screens) -->
+                    <div class="filter-items filter-items-main">
+                        <div id="toggleOrderBtn" class="filter-box filter-box--icon filter--toggle-order">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div id="toggleAllBtn" class="filter-box filter-box--small filter--show-all filter-active">
+                            <p>All</p>
+                        </div>
+                        <div id="toggleCompleteBtn" class="filter-box filter-box--text filter--show-complete">
+                            <p>Complete</p>
+                        </div>
+                        <div id="toggleIncompleteBtn" class="filter-box filter-box--text filter--show-incomplete">
+                            <p>Incomplete</p>
+                        </div>
+                        <div id="togglePrioritisedBtn" class="filter-box filter-box--icon filter--show-prioritised">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <!-- Filter Items (Small Screens) -->
+                    <div class="filter-items filter-items-small">
+                        <div id="toggleOrderBtn" class="filter-box filter-box--icon filter--toggle-order">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div id="toggleAllBtn" class="filter-box filter-box--small filter--show-all filter-active">
+                            <p>All</p>
+                        </div>
+                        <div id="toggleCompleteBtn" class="filter-box filter-box--icon filter--show-complete">
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                        <div id="toggleIncompleteBtn" class="filter-box filter-box--icon filter--show-incomplete">
+                            <i class="fas fa-hourglass"></i>
+                        </div>
+                        <div id="togglePrioritisedBtn" class="filter-box filter-box--icon filter--show-prioritised">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+
+                    <!-- To-Do Item Container -->
+                    <div class="to-do-item-container">
+
+                    </div>
+                </div>
+            </main>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
